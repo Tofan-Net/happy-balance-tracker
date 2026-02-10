@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, Sparkles } from "lucide-react";
 
@@ -5,8 +6,8 @@ const plans = [
   {
     name: "Standard",
     description: "Essential tools for personal finance tracking",
-    price: "9",
-    period: "per month",
+    monthlyPrice: 9,
+    yearlyPrice: 89,
     features: [
       "Track up to 500 transactions/month",
       "Basic expense categories",
@@ -20,8 +21,8 @@ const plans = [
   {
     name: "Premium",
     description: "For serious budgeters and savers",
-    price: "19",
-    period: "per month",
+    monthlyPrice: 19,
+    yearlyPrice: 189,
     features: [
       "Unlimited transactions",
       "Custom categories & tags",
@@ -37,8 +38,8 @@ const plans = [
   {
     name: "Enterprise",
     description: "Manage finances together as a team",
-    price: "39",
-    period: "per month",
+    monthlyPrice: 39,
+    yearlyPrice: 389,
     features: [
       "Everything in Premium",
       "Up to 10 team members",
@@ -54,6 +55,8 @@ const plans = [
 ];
 
 const PricingSection = () => {
+  const [isYearly, setIsYearly] = useState(false);
+
   return (
     <section id="pricing" className="relative py-24">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,hsl(142_76%_45%_/_0.08)_0%,transparent_50%)]" />
@@ -72,6 +75,29 @@ const PricingSection = () => {
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             All plans include a 14-day free trial. No credit card required to start.
           </p>
+
+          {/* Monthly/Yearly Toggle */}
+          <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-border bg-secondary/50 p-1">
+            <button
+              onClick={() => setIsYearly(false)}
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
+                !isYearly ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Monthly
+            </button>
+            <button
+              onClick={() => setIsYearly(true)}
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-all ${
+                isYearly ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              Yearly
+              <span className="ml-1.5 rounded-full bg-primary/20 px-2 py-0.5 text-xs text-primary">
+                Save 15%
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Pricing Cards */}
@@ -100,8 +126,12 @@ const PricingSection = () => {
                 </div>
 
                 <div className="mb-6">
-                  <span className="text-4xl font-bold">${plan.price}</span>
-                  <span className="text-muted-foreground">/{plan.period}</span>
+                  <span className="text-4xl font-bold">
+                    ${isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                  </span>
+                  <span className="text-muted-foreground">
+                    /{isYearly ? "year" : "month"}
+                  </span>
                 </div>
 
                 <ul className="mb-8 space-y-3">
