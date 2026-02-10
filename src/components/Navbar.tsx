@@ -1,15 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Wallet } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <Wallet className="h-5 w-5 text-primary-foreground" />
-          </div>
-          <span className="text-xl font-bold">Tracker</span>
+          <img src={logo} alt="Tofan One" className="h-10" />
         </div>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -25,11 +22,11 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <Button variant="ghost" size="sm">
-            Sign In
+          <Button variant="ghost" size="sm" asChild>
+            <a href="https://admin.tofan.net">Sign In</a>
           </Button>
-          <Button variant="hero" size="sm">
-            Get Started
+          <Button variant="hero" size="sm" asChild>
+            <a href="https://admin.tofan.net">Sign Up</a>
           </Button>
         </div>
       </div>
