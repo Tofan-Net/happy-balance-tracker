@@ -3,24 +3,24 @@ import { Check, Sparkles } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
-    description: "Perfect for personal finance tracking",
-    price: "0",
-    period: "forever",
+    name: "Standard",
+    description: "Essential tools for personal finance tracking",
+    price: "9",
+    period: "per month",
     features: [
-      "Track up to 100 transactions/month",
+      "Track up to 500 transactions/month",
       "Basic expense categories",
       "Monthly summary reports",
       "Mobile app access",
       "Email support"
     ],
-    cta: "Get Started Free",
+    cta: "Start 14-Day Trial",
     popular: false
   },
   {
-    name: "Pro",
+    name: "Premium",
     description: "For serious budgeters and savers",
-    price: "9",
+    price: "19",
     period: "per month",
     features: [
       "Unlimited transactions",
@@ -35,17 +35,17 @@ const plans = [
     popular: true
   },
   {
-    name: "Family",
-    description: "Manage finances together as a household",
-    price: "19",
+    name: "Enterprise",
+    description: "Manage finances together as a team",
+    price: "39",
     period: "per month",
     features: [
-      "Everything in Pro",
-      "Up to 5 family members",
+      "Everything in Premium",
+      "Up to 10 team members",
       "Shared budgets & goals",
       "Individual & combined views",
       "Bill splitting",
-      "Family spending insights",
+      "Team spending insights",
       "Dedicated account manager"
     ],
     cta: "Start 14-Day Trial",
@@ -70,7 +70,7 @@ const PricingSection = () => {
             <span className="gradient-text">Perfect Plan</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Start free and upgrade as you grow. All plans include a 14-day money-back guarantee.
+            All plans include a 14-day free trial. No credit card required to start.
           </p>
         </div>
 
@@ -119,8 +119,9 @@ const PricingSection = () => {
                   variant={plan.popular ? "hero" : "outline"} 
                   className="w-full"
                   size="lg"
+                  asChild
                 >
-                  {plan.cta}
+                  <a href="https://admin.tofan.net">{plan.cta}</a>
                 </Button>
               </div>
             </div>
@@ -130,7 +131,7 @@ const PricingSection = () => {
         {/* Trust Badge */}
         <div className="mt-12 text-center">
           <p className="text-sm text-muted-foreground">
-            🔒 Secured with 256-bit encryption • No credit card required for free plan
+            🔒 Secured with 256-bit encryption • 14-day free trial on all plans
           </p>
         </div>
       </div>

@@ -29,12 +29,14 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col gap-4 sm:flex-row">
-          <Button variant="hero" size="xl">
-            Start Free Trial
-            <ArrowRight className="h-5 w-5" />
+          <Button variant="hero" size="xl" asChild>
+            <a href="https://admin.tofan.net">
+              Start Free Trial
+              <ArrowRight className="h-5 w-5" />
+            </a>
           </Button>
-          <Button variant="heroOutline" size="xl">
-            View Demo
+          <Button variant="heroOutline" size="xl" asChild>
+            <a href="https://admin.tofan.net">View Demo</a>
           </Button>
         </div>
 
@@ -54,7 +56,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* Floating Cards Preview */}
+        {/* Dashboard Preview */}
         <div className="relative mt-20 w-full max-w-4xl">
           <div className="absolute -left-4 top-8 z-10 animate-float md:-left-12">
             <div className="glass-card flex items-center gap-3 rounded-xl p-4">
@@ -97,7 +99,22 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              <div className="h-32 w-full rounded-lg bg-gradient-to-t from-primary/20 to-transparent" />
+              {/* Bar chart visualization */}
+              <div className="flex items-end gap-2 h-32 w-full px-2">
+                {[40, 65, 45, 80, 55, 70, 90, 60, 75, 50, 85, 95].map((height, i) => (
+                  <div key={i} className="flex-1 flex flex-col items-center gap-1">
+                    <div
+                      className="w-full rounded-t-sm bg-primary/60 transition-all duration-500"
+                      style={{ height: `${height}%` }}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-between mt-2 px-2">
+                <span className="text-[10px] text-muted-foreground">Jan</span>
+                <span className="text-[10px] text-muted-foreground">Jun</span>
+                <span className="text-[10px] text-muted-foreground">Dec</span>
+              </div>
             </div>
           </div>
         </div>

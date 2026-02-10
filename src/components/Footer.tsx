@@ -1,4 +1,4 @@
-import { Wallet } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -8,10 +8,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-                <Wallet className="h-5 w-5 text-primary-foreground" />
-              </div>
-              <span className="text-xl font-bold">Tracker</span>
+              <img src={logo} alt="Tofan One" className="h-10" />
             </div>
             <p className="text-sm text-muted-foreground">
               Take control of your financial future with smart expense tracking.
@@ -51,7 +48,7 @@ const Footer = () => {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © 2024 Tracker. All rights reserved.
+            © 2024 Tofan One. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a href="#" className="text-muted-foreground transition-colors hover:text-foreground">
