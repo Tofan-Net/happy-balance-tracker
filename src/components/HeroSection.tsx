@@ -58,30 +58,6 @@ const HeroSection = () => {
 
         {/* Dashboard Preview */}
         <div className="relative mt-20 w-full max-w-4xl">
-          <div className="absolute -left-4 top-8 z-10 animate-float md:-left-12">
-            <div className="glass-card flex items-center gap-3 rounded-xl p-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20">
-                <TrendingUp className="h-5 w-5 text-primary" />
-              </div>
-              <div>
-                <div className="text-xs text-muted-foreground">Income</div>
-                <div className="font-semibold text-primary">+$4,250.00</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="absolute -right-4 top-16 z-10 animate-float md:-right-12" style={{ animationDelay: '2s' }}>
-            <div className="glass-card flex items-center gap-3 rounded-xl p-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-destructive/20">
-                <TrendingDown className="h-5 w-5 text-destructive" />
-              </div>
-              <div>
-                <div className="text-xs text-muted-foreground">Expenses</div>
-                <div className="font-semibold text-destructive">-$1,890.00</div>
-              </div>
-            </div>
-          </div>
-
           <div className="glass-card overflow-hidden rounded-2xl p-1" style={{ boxShadow: 'var(--shadow-glow)' }}>
             <div className="rounded-xl bg-card p-6">
               <div className="mb-6 flex items-center justify-between">
@@ -98,13 +74,35 @@ const HeroSection = () => {
                   +12.5%
                 </div>
               </div>
+
+              {/* Summary cards row */}
+              <div className="mb-6 grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 rounded-lg border border-border/50 bg-secondary/30 p-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20">
+                    <TrendingUp className="h-4 w-4 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground">Income</div>
+                    <div className="text-sm font-semibold text-primary">+$4,250.00</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 rounded-lg border border-border/50 bg-secondary/30 p-3">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-destructive/20">
+                    <TrendingDown className="h-4 w-4 text-destructive" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-muted-foreground">Expenses</div>
+                    <div className="text-sm font-semibold text-destructive">-$1,890.00</div>
+                  </div>
+                </div>
+              </div>
               
               {/* Bar chart visualization */}
               <div className="flex items-end gap-2 h-32 w-full px-2">
                 {[40, 65, 45, 80, 55, 70, 90, 60, 75, 50, 85, 95].map((height, i) => (
                   <div key={i} className="flex-1 flex flex-col items-center gap-1">
                     <div
-                      className="w-full rounded-t-sm bg-primary/60 transition-all duration-500"
+                      className="w-full rounded-t-sm bg-primary/60"
                       style={{ height: `${height}%` }}
                     />
                   </div>
